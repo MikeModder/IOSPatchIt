@@ -122,7 +122,7 @@ ConsoleWrite("Now we need to extract the contents so we can patch it!"&@CRLF)
 
 ;Extract IOS31 to IOS31/
 ConsoleWrite("Extracting IOS31...   ")
-ShellExecuteWait(".\Sharpii.exe", "WAD -u IOS31-noPatch.wad IOS31/")
+ShellExecuteWait(".\Sharpii.exe", "WAD -u IOS31-noPatch.wad IOS31/", "", $SHEX_OPEN, @SW_HIDE)
 
 If Not @error == 0 Then
 	ConsoleWrite("Error extracting IOS31! Error code: "&@error)
@@ -134,7 +134,7 @@ ConsoleWrite("Done!"&@CRLF)
 
 ;Extract IOS80 to IOS80/
 ConsoleWrite("Extracting IOS80...   ")
-ShellExecuteWait(".\Sharpii.exe", "WAD -u IOS80-noPatch.wad IOS80/")
+ShellExecuteWait(".\Sharpii.exe", "WAD -u IOS80-noPatch.wad IOS80/", "", $SHEX_OPEN, @SW_HIDE)
 
 If Not @error == 0 Then
 	ConsoleWrite("Error extracting IOS80! Error code: "&@error)
@@ -155,7 +155,7 @@ EndIf
 
 ;Patch the .app file of IOS31
 ConsoleWrite("Patching IOS31...   ")
-ShellExecuteWait(".\Sharpii.exe", "-f -d -s 00000006.app 00000006-31.delta IOS31\00000006.app")
+ShellExecuteWait(".\Sharpii.exe", "-f -d -s 00000006.app 00000006-31.delta IOS31\00000006.app", "", $SHEX_OPEN, @SW_HIDE)
 
 If Not @error == 0 Then
 	ConsoleWrite("Error patching IOS31! Error code: "&@error)
@@ -169,7 +169,7 @@ FileDelete(@ScriptDir&"\00000006.app")
 
 ;Patch the .app file of IOS80
 ConsoleWrite("Patching IOS80...   ")
-ShellExecuteWait(".\Sharpii.exe", "-f -d -s 00000006.app 00000006-80.delta IOS80\00000006.app")
+ShellExecuteWait(".\Sharpii.exe", "-f -d -s 00000006.app 00000006-80.delta IOS80\00000006.app", "", $SHEX_OPEN, @SW_HIDE)
 
 If Not @error == 0 Then
 	ConsoleWrite("Error patching IOS80! Error code: "&@error)
@@ -186,7 +186,7 @@ EndIf
 
 ;Rebuild IOS31
 ConsoleWrite("Rebuilding IOS31...   ")
-ShellExecuteWait(".\Sharpii.exe", "WAD -p IOS31\ WAD\IOS31.wad -fs")
+ShellExecuteWait(".\Sharpii.exe", "WAD -p IOS31\ WAD\IOS31.wad -fs", "", $SHEX_OPEN, @SW_HIDE)
 
 If Not @error == 0 Then
 	ConsoleWrite("Error rebuilding IOS31! Error code: "&@error)
@@ -198,7 +198,7 @@ ConsoleWrite("Done!"&@CRLF)
 
 ;Rebuild IOS80
 ConsoleWrite("Rebuilding IOS80...   ")
-ShellExecuteWait(".\Sharpii.exe", "WAD -p IOS80\ WAD\IOS80.wad -fs")
+ShellExecuteWait(".\Sharpii.exe", "WAD -p IOS80\ WAD\IOS80.wad -fs", "", $SHEX_OPEN, @SW_HIDE)
 
 If Not @error == 0 Then
 	ConsoleWrite("Error rebuilding IOS80! Error code: "&@error)
