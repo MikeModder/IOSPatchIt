@@ -14,7 +14,7 @@
 #AutoIt3Wrapper_UseX64=n
 #AutoIt3Wrapper_Res_Comment=A patcher made to allow users to generate the patched wads to use with RiiConnect24.
 #AutoIt3Wrapper_Res_Description=IOS Patcher for RiiConnect24
-#AutoIt3Wrapper_Res_Fileversion=2
+#AutoIt3Wrapper_Res_Fileversion=3
 #AutoIt3Wrapper_Change2CUI=y
 #EndRegion
 
