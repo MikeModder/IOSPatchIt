@@ -168,6 +168,15 @@ ConsoleWrite("Done!"&@CRLF)
 
 FileDelete(@ScriptDir&"\00000006.app")
 
+;Move the .app file to the script dir, so we can have the output give us the correct file.
+FileMove(@ScriptDir&"\IOS80\00000006.app", @ScriptDir&"\00000006.app")
+;Make sure it was moved
+If Not FileExists(@ScriptDir&"\00000006.app") Then
+	ConsoleWrite("Failed to move 00000006.app!"&@CRLF)
+	waitForEnter()
+	Exit
+EndIf
+
 ;Patch the .app file of IOS80
 ConsoleWrite("Patching IOS80...   ")
 ShellExecuteWait(".\Sharpii.exe", "-f -d -s 00000006.app 00000006-80.delta IOS80\00000006.app", "", $SHEX_OPEN, @SW_HIDE)
