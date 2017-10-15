@@ -145,7 +145,7 @@ EndIf
 ConsoleWrite("Done!"&@CRLF)
 
 ;Move the .app file to the script dir, so we can have the output give us the correct file.
-FileMove(@ScriptDir&"IOS31\00000006.app", @ScriptDir&"\00000006.app")
+FileMove(@ScriptDir&"\IOS31\00000006.app", @ScriptDir&"\00000006.app")
 ;Make sure it was moved
 If Not FileExists(@ScriptDir&"\00000006.app") Then
 	ConsoleWrite("Failed to move 00000006.app!"&@CRLF)
