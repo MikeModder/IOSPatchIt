@@ -40,6 +40,7 @@ FileDelete(@ScriptDir&"\*.app")
 ConsoleWrite("Cleaning IOS80/31 extracted directories (should they exist)..."&@CRLF)
 FileDelete(@ScriptDir&"\IOS31\*")
 FileDelete(@ScriptDir&"\IOS80\*")
+FileDelete(@ScriptDir&"\WAD\*")
 
 ;Extract the files we need to patch stuff
 ConsoleWrite("Extracting required files..."&@CRLF)
