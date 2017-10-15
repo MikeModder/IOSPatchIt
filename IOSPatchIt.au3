@@ -18,6 +18,8 @@
 #AutoIt3Wrapper_Change2CUI=y
 #EndRegion
 
+#NoTrayIcon
+
 Global $prgInfo[]
 Global $overwriteFiles = 1
 Global $hDLL = DllOpen("user32.dll")
