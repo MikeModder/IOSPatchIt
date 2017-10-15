@@ -118,8 +118,6 @@ EndIf
 
 ConsoleWrite("Done!"&@CRLF)
 
-waitForEnter()
-
 ;Time to extract the contents of the IOSes
 ConsoleWrite("Now we need to extract the contents so we can patch it!"&@CRLF)
 
@@ -145,11 +143,7 @@ If Not @error == 0 Then
 	Exit
 EndIf
 
-waitForEnter()
-
 ConsoleWrite("Done!"&@CRLF)
-
-waitForEnter()
 
 ;Move the .app file to the script dir, so we can have the output give us the correct file.
 FileMove(@ScriptDir&"\IOS31\00000006.app", @ScriptDir&"\00000006.app")
@@ -159,9 +153,6 @@ If Not FileExists(@ScriptDir&"\00000006.app") Then
 	waitForEnter()
 	Exit
 EndIf
-
-ConsoleWrite("Moving IOS31 .app"&@CRLF)
-waitForEnter()
 
 ;Patch the .app file of IOS31
 ConsoleWrite("Patching IOS31...   ")
@@ -175,13 +166,8 @@ EndIf
 
 ConsoleWrite("Done!"&@CRLF)
 
-ConsoleWrite("Deleting IOS31 .app"&@CRLF)
-waitForEnter()
-
 FileDelete(@ScriptDir&"\00000006.app")
 
-
-ConsoleWrite("Moving IOS80 app"&@CRLF)
 ;Move the .app file to the script dir, so we can have the output give us the correct file.
 FileMove(@ScriptDir&"\IOS80\00000006.app", @ScriptDir&"\00000006.app")
 ;Make sure it was moved
@@ -190,8 +176,6 @@ If Not FileExists(@ScriptDir&"\00000006.app") Then
 	waitForEnter()
 	Exit
 EndIf
-
-waitForEnter()
 
 ;Patch the .app file of IOS80
 ConsoleWrite("Patching IOS80...   ")
@@ -205,8 +189,6 @@ EndIf
 
 ConsoleWrite("Done!"&@CRLF)
 
-waitForEnter()
-
 ;Make a WAD directory for the patched wads
 If Not FileExists(@ScriptDir&"\WAD\") Then
 	DirCreate(@ScriptDir&"\WAD\")
@@ -214,7 +196,6 @@ EndIf
 
 ;Rebuild IOS31
 ConsoleWrite("Rebuilding IOS31...   ")
-waitForEnter()
 ShellExecuteWait(".\Sharpii.exe", "WAD -p IOS31\ WAD\IOS31.wad -fs", "", $SHEX_OPEN, @SW_SHOW)
 
 If Not @error == 0 Then
@@ -227,7 +208,6 @@ ConsoleWrite("Done!"&@CRLF)
 
 ;Rebuild IOS80
 ConsoleWrite("Rebuilding IOS80...   ")
-waitForEnter()
 ShellExecuteWait(".\Sharpii.exe", "WAD -p IOS80\ WAD\IOS80.wad -fs", "", $SHEX_OPEN, @SW_SHOW)
 
 If Not @error == 0 Then
@@ -238,9 +218,6 @@ EndIf
 
 ConsoleWrite("Done!"&@CRLF)
 
-ConsoleWrite("Done. Hit enter to cleanup."&@CRLF)
-waitForEnter()
-
 ConsoleWrite("Looks like we're done with downloading and patching. Cleaning up the directory..."&@CRLF)
 FileDelete(@ScriptDir&"\*.wad")
 FileDelete(@ScriptDir&"\*.dll")
@@ -248,7 +225,7 @@ FileDelete(@ScriptDir&"\*.delta")
 FileDelete(@ScriptDir&"\Sharpii.exe")
 FileDelete(@ScriptDir&"\xdelta3.exe")
 
-ConsoleWrite("The patched WAD files can be found the WAD directory.")
+ConsoleWrite("The patched WAD files can be found the WAD directory."&@CRLF)
 
 ConsoleWrite("Program finished. Thanks for using it!"&@CRLF)
 waitForEnter()
